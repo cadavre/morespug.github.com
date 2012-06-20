@@ -1,0 +1,54 @@
+﻿@import './less/bootstrap.less';
+@import './less/buttons.less';
+@import './less/code.less';
+@import './less/breadcrumbs.less';
+@import './less/navbar.less';
+@import './less/navs.less';
+
+@import './less/mixins.less';
+
+/* Steps */
+#steps {
+    width: 940px;
+    overflow: hidden;
+
+    .step {
+        width: 940px;
+        position: relative;
+        float: left;
+
+		.step-content {
+			padding: 20px;
+		}
+    }
+}
+
+div.step:not(:first-of-type) {
+    display: none;
+}
+
+/* Sticky footer */
+@footerHeight: 40px;
+* { margin:0; padding:0; }
+html, body, #wrap { height: 100%; }
+body > #wrap { height: auto; min-height: 99%; }
+#main { padding-bottom: @footerHeight; }
+#footer {
+    position: relative;
+    margin-top: -@footerHeight;
+    height: @footerHeight;
+    clear: both;
+    float: right;
+    margin-right: 30px;
+    font-size: 0.9em;
+    line-height: 1em;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;}
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
