@@ -190,7 +190,7 @@ Symfony.stepChanger.bindNextButtonSubmitAction = function () {
  */
 Symfony.stepChanger.checkNextButtonAction = function (destination) {
     if (destination === Symfony.stepChanger.countSteps()) {
-        $("button#next").text("Save");
+        $("button#next").text("Thank you SPUG!");
         Symfony.stepChanger.bindNextButtonSubmitAction();
     } else {
         $("button#next").text("Continue");

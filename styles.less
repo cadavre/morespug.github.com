@@ -1,5 +1,125 @@
-﻿@import './less/develop.less';
+﻿@import './less/mixins.less';
+@import './less/variables.less';
 /*
  * My LessCSS sandbox
  * Seweryn Zeman, 2012
  */
+ 
+#step-4 {
+	@baseFontSize: 10px;
+	h1 {
+		font-size: @baseFontSize + 6px;
+	}
+	p, span {
+		font-size: @baseFontSize;
+	}
+}
+
+#step-6 input {
+	width: 50px;
+	.transition(width 1s);
+	.border-radius(15px);
+	.box-shadow(inset 0 2px 4px #ddd);
+	&:hover, &:focus {
+		width: 400px;
+	}
+}
+
+#step-8-box {
+	.square(100px);
+	background-color: @red;
+}
+#step-8-box:hover {
+	background-color: lighten(@red, 30%);
+}
+
+.colour (@a) when (lightness(@a) >= 50%) {
+	color: lighten(@black, 100%-lightness(@a));
+}
+.colour (@a) when (lightness(@a) < 50%) {
+	color: darken(@white, lightness(@a));
+}
+.colour (@a) {
+	background-color: @a;
+}
+
+.step-9-box {
+	.square(100px);
+	float: right;
+}
+.step-9-box:nth-of-type(1) {
+	.colour(#eee);
+}
+.step-9-box:nth-of-type(2) {
+	.colour(#ddd);
+}
+.step-9-box:nth-of-type(3) {
+	.colour(#444);
+}
+
+#step-15-box {
+	.square(100px);
+	#gradient > .striped(@blueDark);
+}
+
+@searchNonfriendWidth: 400px;
+@searchNonfriendElementHeight: 60px;
+@searchNonfriendElementCount: 5;
+#main-search-user {
+    width: @searchNonfriendWidth;
+    height: (@searchNonfriendElementHeight * @searchNonfriendElementCount) + 2px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    > table {
+        border: 1px solid #ddd;
+        .border-radius(6px);
+        .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+        border-collapse: separate;
+        margin: 0;
+
+        p {
+            font-weight: bold;
+            margin-bottom: 2px;
+			line-height: 16px;
+
+            &.name-surname {
+                font-size: 16px;
+            }
+            &.subtext {
+                font-size: 12px;
+                color: @grayLight;
+            }
+        }
+
+        tr {
+            height: @searchNonfriendElementHeight;
+
+            td {
+                border-top: 0;
+                vertical-align: middle;
+                padding: 4px;
+            }
+            td:last-of-type {
+                text-align: right;
+                padding-right: 20px;
+            }
+        }
+        tr:not(:last-of-type) {
+            td {
+                border-top: 0;
+                border-bottom: 2px solid #eee;
+            }
+        }
+        tr:hover td {
+            background-color: #f5f5f5;
+            .border-radius(4px);
+        }
+    }
+}
+
+#welcome-div {
+	margin: 20px auto;
+	.square(500px);
+	#gradient > .striped(@red, -70deg);
+}

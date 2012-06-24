@@ -7,6 +7,7 @@
         <meta name="author" content="Seweryn Zeman" />
 		<title>LessCSS, more SPUG!</title>
 
+		<link rel="stylesheet/less" type="text/css" href="./less/develop.less" />
         <link rel="stylesheet/less" type="text/css" href="styles.less" />
 
         <!--[if lt IE 9]>
@@ -19,29 +20,360 @@
 			<div id="step-header">
 				<div class="breadcrumb">
 					<ul class="nav nav-pills">
-						<li><a href="#1" id="nav-step-1">1</a></li>
-						<li><a href="#2" id="nav-step-2">2</a></li>
-						<li><a href="#3" id="nav-step-2">3</a></li>
-						<li><a href="#4" id="nav-step-2">4</a></li>
-						<li><a href="#5" id="nav-step-2">5</a></li>
-						<li><a href="#6" id="nav-step-2">6</a></li>
+						<li class="filled"><a href="#1" id="nav-step-1">1</a></li>
+						<li class="filled"><a href="#2" id="nav-step-2">2</a></li>
+						<li class="filled"><a href="#3" id="nav-step-2">3</a></li>
+						<li class="filled"><a href="#4" id="nav-step-2">4</a></li>
+						<li class="filled"><a href="#5" id="nav-step-2">5</a></li>
+						<li class="filled"><a href="#6" id="nav-step-2">6</a></li>
+						<li class="filled"><a href="#7" id="nav-step-2">7</a></li>
+						<li class="filled"><a href="#8" id="nav-step-2">8</a></li>
+						<li class="filled"><a href="#9" id="nav-step-2">9</a></li>
+						<li class="filled"><a href="#10" id="nav-step-2">10</a></li>
+						<li class="filled"><a href="#11" id="nav-step-2">11</a></li>
+						<li class="filled"><a href="#12" id="nav-step-2">12</a></li>
+						<li class="filled"><a href="#13" id="nav-step-2">13</a></li>
+						<li class="filled"><a href="#14" id="nav-step-2">14</a></li>
+						<li class="filled"><a href="#15" id="nav-step-2">15</a></li>
+						<li class="filled"><a href="#16" id="nav-step-2">16</a></li>
+						<li class="filled"><a href="#17" id="nav-step-2">17</a></li>
+						<li class="filled"><a href="#18" id="nav-step-2">18</a></li>
+						<li class="filled"><a href="#19" id="nav-step-2">19</a></li>
 					</ul>
 				</div>
 			</div>
             <div id="steps">
 				<div id="step-1" class="step">
-					<h2>Nagłówek</h2>
+					<div id="welcome-div"></div>
+				</div>
+				<div id="step-2" class="step">
+					<div class="hero-unit">
+						<h1><img src="./img/lesscss.png" />, more SPUG!</h1>
+						<h3>Język dynamicznego tworzenia arkuszy stylów</h3>
+					</div>
+				</div>
+				<div id="step-3" class="step">
+					<h2>Po której stronie?</h2>
 					<div class="step-content">
+						<ul>
+							<li>node.js</li>
+							<li>lessphp</li>
+							<li>Java LessCompiler</li>
+						</ul>
+						<ul>
+							<li>less.js</li>
+						</ul>
+					</div>
+				</div>
+				<div id="step-4" class="step">
+					<h2>Możliwości</h2>
+					<div class="step-content">
+<pre><code><b>@baseFontSize: 10px;</b>
+#step-3 p, span {
+	font-size: <b>@baseFontSize;</b>
+}
+#step-3 h1 {
+	font-size: @baseFontSize <b>+ 6px</b>;
+}</code></pre>
+						<h1>Nagłówek</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+				<div id="step-5" class="step">
+					<h2>Mixins</h2>
+					<div class="step-content">
+<pre><code>@defaultRadius: 5px;
+.border-radius<b>(@radius:@defaultRadius)</b> {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+.transition(@transition) {
+  <b>-webkit-</b>transition: @transition;
+     <b>-moz-</b>transition: @transition;
+      <b>-ms-</b>transition: @transition;
+       <b>-o-</b>transition: @transition;
+          <b>transition</b>: @transition;
+}</code></pre>
+					</div>
+				</div>
+				<div id="step-6" class="step">
+					<h2>Mixins</h2>
+					<div class="step-content">
+<pre><code>#step-5 input {
+	width: 50px;
+	<b>.transition(width 1s);
+	.border-radius(15px);
+	.box-shadow(inset 0 2px 4px #ddd);</b>
+}
+#step-5 input:hover, #step-5 input:focus {
+	width: 400px;
+}</code></pre>
 						<input type="text" />
 					</div>
 				</div>
-				<div id="step-2" class="step">
-					<h2>Nagłówek 2</h2>
-					<div class="step-content">Jakaś fsdfsdf treść</div>
+				<div id="step-7" class="step">
+					<h2>Parametr @arguments</h2>
+					<div class="step-content">
+<pre><code>.box-emboss (@x: 0, @y: 0, @blur: 4px, @color: #ddd) {
+	box-shadow: inset @arguments;
+	-moz-box-shadow: inset @arguments;
+	-webkit-box-shadow: inset @arguments;
+}
+// przykład użycia
+.box-emboss(0, 2px, 4px);</code></pre>
+					</div>
 				</div>
-				<div id="step-3" class="step">
-					<h2>Nagłówek 3</h2>
-					<div class="step-content">Jakaś treść fdsfsdfdg</div>
+				<div id="step-8" class="step">
+					<h2>Predefiniowane funkcje - operacje na kolorach</h2>
+					<div class="step-content">
+<pre><code>@gray: #999;
+@lightGray: <b>lighten</b>(@gray, 20%);
+@darkGray: <b>darken</b>(@gray, 20%);
+/**
+  *  <b>lighten(), darken(), saturate(), desaturate(), spin(), mix()</b>
+  */
+
+#step-6-box:hover {
+	background-color: <b>lighten</b>(@red, 30%);
+}</code></pre>
+						<div id="step-8-box"></div>
+					</div>
+				</div>
+				<div id="step-9" class="step">
+					<h2>Instrukcje warunkowe</h2>
+					<div class="step-content">
+<pre><code>.colour (@a) <b>when (lightness(@a) >= 50%)</b> { // alpha()
+	color: lighten(@black, 100%-lightness(@a));
+}
+.colour (@a) when (lightness(@a) < 50%) {
+	color: darken(@white, lightness(@a));
+}
+.colour (@a) {
+	background-color: @a;
+}
+
+.step-8-box:nth-of-type(1) { .colour(#eee); }
+.step-8-box:nth-of-type(2) { .colour(#ddd); }
+.step-8-box:nth-of-type(3) { .colour(#444); }</code></pre>
+						<div class="step-9-box">Lorem ipsum dolor sit amet...</div>
+						<div class="step-9-box">Lorem ipsum dolor sit amet...</div>
+						<div class="step-9-box">Lorem ipsum dolor sit amet...</div>
+					</div>
+				</div>
+				<div id="step-10" class="step">
+					<h2>Zagnieżdżanie styli</h2>
+					<div class="step-content">
+<pre><code>@baseFontSize: 10px;
+#step-3 h1 {
+	font-size: @baseFontSize + 6px;
+}
+#step-3 p, span {
+	font-size: @baseFontSize;
+}</code></pre>
+					</div>
+				</div>
+				<div id="step-11" class="step">
+					<h2>Zagnieżdżanie styli</h2>
+					<div class="step-content">
+<pre><code>#step-3 {
+	@baseFontSize: 10px;
+	h1 {
+		font-size: @baseFontSize + 6px;
+	}
+	p, span {
+		font-size: @baseFontSize;
+	}
+	div {
+		margin: 20px;
+		img {
+			.image-border;
+		}
+	}
+}</code></pre>
+					</div>
+				</div>
+				<div id="step-12" class="step">
+					<h2>Zagnieżdżanie styli</h2>
+					<div class="step-content">
+<pre><code style="font-size:18px;">&lt;div id="container"&gt;			div#container {
+	&lt;h1 id="head"&gt;&lt;/h1&gt;			h1#head { }
+	&lt;div class="content"&gt;			div.content {
+		&lt;p class="hero"&gt;&lt;/p&gt;			p.hero { }
+		&lt;span class="texts"&gt;			span.texts {
+			&lt;a href="#"&gt;Link&lt;/a&gt;			a { &:hover { }}
+		&lt;/span&gt;					}
+	&lt;/div&gt;					}
+&lt;/div&gt;					}</code></pre>
+					</div>
+				</div>
+				<div id="step-13" class="step">
+					<h2>Odwołanie do rodzica (this)</h2>
+					<div class="step-content">
+<pre><code>#step-5 input {
+	width: 50px;
+	.transition(width 1s);
+	.border-radius(15px);
+	.box-shadow(inset 0 2px 4px #ddd);
+}
+#step-5 input:hover, #step-5 input:focus {
+	width: 400px;
+}</code></pre>
+					</div>
+				</div>
+				<div id="step-14" class="step">
+					<h2>Odwołanie do rodzica (this)</h2>
+					<div class="step-content">
+<pre><code>#step-5 input {
+	width: 50px;
+	.transition(width 1s);
+	.border-radius(15px);
+	.box-shadow(inset 0 2px 4px #ddd);
+	&:hover, &:focus {
+		width: 400px;
+	}
+}</code></pre>
+					</div>
+				</div>
+				<div id="step-15" class="step">
+					<h2>Dlaczego mixins?</h2>
+					<div class="step-content">
+<pre><code style="font-size:8px;line-height:8px;">.striped(@color, @angle: -45deg) {
+	background-color: @color;
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), 
+		color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent));
+	background-image: -webkit-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+	background-image: -ms-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+}</code></pre>
+<pre><code>// użycie
+#step-14-box {
+	.striped(@deepBlue)
+}</code></pre>
+						<div id="step-15-box"></div>
+					</div>
+				</div>
+				<div id="step-16" class="step">
+					<h2>Dlaczego mixins?</h2>
+					<div class="step-content">
+<pre><code style="font-size:19px;">@globalBorderWidth: 1px;
+@elementHeight: 60px;
+@elementCount: 5;
+#container {
+    width: 100%;
+    height: (@elementHeight * @elementCount) + (2 * @globalBorderWidth);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    > table {
+        border: @globalBorderWidth solid @grayBorder;
+        p {
+            &.first-line { font-size: @baseFontSize + 2px; }
+            &.second-line { font-size: @baseFontSize - 2px; color: @grayLight; }
+        }
+        tr {
+			height: @elementHeight;
+			&:hover td {
+				background-color: #f5f5f5;
+				.border-radius(4px);
+}}}}</code></pre>
+					</div>
+				</div>
+				<div id="step-17" class="step">
+					<h2>Wynik =</h2>
+					<div class="step-content">
+<div id="main-search-user">
+	<table class="table">
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+		<tr>
+		  <td>
+			<p class="name-surname">Pierwszy wiersz</p>
+			<p class="subtext">Drugi wiersz</p>
+		  </td>
+		</tr>
+	</table>
+</div>
+					</div>
+				</div>
+				<div id="step-18" class="step">
+					<div class="step-content">
+						<h2>Zbudowano z wykorzystaniem</h2><br />
+						<h1>Twitter Bootstrap</h1><br />
+						<img src="./img/lesscss.png" /><br />
+						<img src="./img/jquery.png" />
+					</div>
+				</div>
+				<div id="step-19" class="step">
+					<div class="hero-unit">
+						<h1><img src="./img/lesscss.png" /></h1><br />
+						<h1>www.lesscss.org</h1>
+					</div>
 				</div>
 			</div>
         </div>
@@ -51,6 +383,6 @@
 	<script src="js/hashchange.js" type="text/javascript"></script>
 	<script src="js/less.js" type="text/javascript"></script>
 	<script src="js/stepper.js" type="text/javascript"></script>
-	<script src="js/page.js" type="text/javascript"></script>
+	<script src="scripts.js" type="text/javascript"></script>
     </body>
 </html>
